@@ -65,8 +65,8 @@
 00000000 syscall.c
 801074c0 syscalls
 00000000 sysfile.c
-801047d0 create
-80104970 argfd.constprop.0
+801047c0 create
+80104960 argfd.constprop.0
 00000000 sysproc.c
 00000000 timer.c
 00000000 trap.c
@@ -86,7 +86,7 @@
 80105d46 vector87
 80105d3d vector86
 80104550 safestrcpy
-80104b10 sys_close
+80104b00 sys_close
 8010647b vector251
 80105d6a vector91
 80105b60 vector33
@@ -128,13 +128,13 @@
 80105db2 vector99
 80101a20 writei
 80105f53 vector141
-801053a0 sys_fork
+80105390 sys_fork
 8010b5e0 bcache
 801060c7 vector172
 80106403 vector241
 801112c4 ismp
 801041f0 getcallerpcs
-80105060 sys_mkdir
+80105050 sys_mkdir
 80106493 vector253
 80105a60 vector3
 80105a57 vector2
@@ -158,7 +158,7 @@
 80105b2a vector27
 80105ee7 vector132
 8010616f vector186
-80104a30 sys_read
+80104a20 sys_read
 801062e3 vector217
 801045c0 fetchint
 801067c0 setupkvm
@@ -200,13 +200,13 @@
 80106427 vector244
 801018f0 stati
 80105f47 vector140
-801053d0 sys_kill
+801053c0 sys_kill
 80105bcc vector45
 80105cfe vector79
 80103440 pipeclose
 80106373 vector229
 8010601f vector158
-80104b60 sys_fstat
+80104b50 sys_fstat
 801005e0 consolewrite
 80105b96 vector39
 80106097 vector168
@@ -240,7 +240,7 @@
 8010614b vector183
 8010602b vector159
 801062a7 vector212
-80104bb0 sys_link
+80104ba0 sys_link
 80105bde vector47
 80106367 vector228
 80105bb1 vector42
@@ -263,7 +263,7 @@
 801015d0 idup
 801063c7 vector236
 801025b0 kbdintr
-80104f00 sys_open
+80104ef0 sys_open
 8010638b vector231
 80105c89 vector66
 80105b3c vector29
@@ -274,7 +274,7 @@
 80105cec vector77
 80101490 ialloc
 80106127 vector180
-80114164 kpgdir
+80114064 kpgdir
 80106277 vector208
 801027e0 cmostime
 80105a30 uartintr
@@ -283,7 +283,7 @@
 801060f7 vector176
 801061cf vector194
 80105b57 vector32
-80114168 end
+80114068 end
 8010620b vector199
 80105edb vector131
 80106487 vector252
@@ -292,7 +292,7 @@
 80104640 argint
 801009d0 exec
 80105f83 vector145
-80104aa0 sys_write
+80104a90 sys_write
 80104300 release
 801045f0 fetchstr
 80105dfa vector107
@@ -319,7 +319,7 @@
 80105b84 vector37
 80106253 vector205
 80106043 vector161
-80113920 tickslock
+80113820 tickslock
 801034e0 pipewrite
 801044f0 strncpy
 80105cb6 vector71
@@ -329,7 +329,7 @@
 80104680 argptr
 801062cb vector215
 80106013 vector157
-801049d0 sys_dup
+801049c0 sys_dup
 80105e27 vector112
 80100350 panic
 801037c0 forkret
@@ -345,7 +345,7 @@
 0000008a _binary_entryother_size
 801112e0 cpus
 80105d8e vector95
-80105420 sys_getcount
+80105410 sys_getcount
 80104250 holding
 801101a0 sb
 80104120 acquire
@@ -375,7 +375,7 @@
 8010605b vector163
 801063af vector234
 80102d40 log_write
-80104d10 sys_unlink
+80104d00 sys_unlink
 80105c65 vector62
 80105b18 vector25
 801061ff vector198
@@ -395,8 +395,8 @@
 80105bd5 vector46
 80105eff vector134
 8010632b vector223
-80113960 idt
-80113914 count
+80113860 idt
+8010f78c count
 801062ef vector218
 80103810 pinit
 80106b50 deallocuvm
@@ -409,7 +409,7 @@
 801000c0 bread
 80105eae vector127
 80103610 piperead
-80114160 ticks
+80114060 ticks
 801061b7 vector192
 8010607f vector166
 80100980 consoleinit
@@ -440,7 +440,7 @@
 80105e15 vector110
 80106247 vector204
 80101600 ilock
-80105200 sys_exec
+801051f0 sys_exec
 80105f23 vector137
 8010a460 _binary_initcode_start
 801045ab swtch
@@ -460,8 +460,8 @@
 801063a3 vector233
 80105660 idtinit
 80103c20 exit
-801053c0 sys_wait
-801053b0 sys_exit
+801053b0 sys_wait
+801053a0 sys_exit
 80101dd0 dirlink
 0000002c _binary_initcode_size
 80105f9b vector147
@@ -477,7 +477,7 @@
 80105ad2 vector17
 80106157 vector184
 80104590 strlen
-801052e0 sys_pipe
+801052d0 sys_pipe
 80101430 iinit
 801032a0 picinit
 8010626b vector207
@@ -495,7 +495,7 @@
 80106313 vector221
 80102470 kalloc
 80110140 devsw
-80105410 sys_getpid
+80105400 sys_getpid
 80105d07 vector80
 801060bb vector171
 80105fef vector154
@@ -503,12 +503,12 @@
 80103340 pipealloc
 801063bb vector235
 80105de8 vector105
-80105150 sys_chdir
+80105140 sys_chdir
 801101c0 icache
 80105f8f vector146
 801061ab vector191
 80105dd6 vector103
-801050c0 sys_mknod
+801050b0 sys_mknod
 80102750 lapicstartap
 80106870 switchuvm
 80104280 pushcli

@@ -125,9 +125,6 @@ static int (*syscalls[])(void) = {
 [SYS_getcount] sys_getcount, //getcount here
 };
 
-// Sys Call Counter
-int count;
-
 void
 syscall(void)
 {
@@ -135,7 +132,7 @@ syscall(void)
 
   num = proc->tf->eax;
   if(num > 0 && num < NELEM(syscalls) && syscalls[num]) {
-    proc->count = count++; //increments count every time a sys call is made
+    count++; //increments count every time a sys call is made
     proc->tf->eax = syscalls[num]();
   } else {
     cprintf("%d %s: unknown sys call %d\n",

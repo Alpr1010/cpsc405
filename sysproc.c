@@ -44,8 +44,10 @@ sys_getpid(void)
 
 // Counts number of sys calls made
 int sys_getcount(void) {
+    if(count < 0)
+        return -1;
     // Returns count
-    return proc->count;
+    return count;
 }//end count
 
 int

@@ -439,7 +439,7 @@ kill(int pid)
 // Runs when user types ^P on console.
 // No lock to avoid wedging a stuck machine further.
 void
-procdump(void)
+procdump(void) //used for displaying content to screen when testing for lab3****
 {
   static char *states[] = {
   [UNUSED]    "unused",
