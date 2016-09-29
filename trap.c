@@ -106,8 +106,14 @@ trap(struct trapframe *tf)
   if(proc && proc->state == RUNNING && tf->trapno == T_IRQ0+IRQ_TIMER) {
     // Increase timecpu for process
     proc->timecpu++;
-    cprintf("priority = %d", proc->priority);
-    cprintf("timecpu = %d", proc->timecpu);
+    prioritybump++;
+    cprintf("priority bump = %d\n", prioritybump);
+
+
+    if(prioritybump == 10) {
+      prioritybump = 0;
+      cprintf("RESETTING TO 0\n");
+    }
 
     /* If statement to find when it's on highest and lowest priority.
         if it's on highest and timecpu is 1, it will reduce priority and yield

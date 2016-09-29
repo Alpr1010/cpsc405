@@ -281,7 +281,6 @@ scheduler(void)
     // Enable interrupts on this processor.
     sti();
 
-
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
