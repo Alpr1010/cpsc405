@@ -65,7 +65,7 @@ struct proc {
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
   int priority;                // priority of process(lab3)
-  int timeslice;               // timeslice on cpu(lab3)
+  int timecpu;               // time on cpu(lab3)
 
 };
 

@@ -68,6 +68,10 @@ found:
   memset(p->context, 0, sizeof *p->context);
   p->context->eip = (uint)forkret;
 
+  // Set new variables for process (Lab3)
+  p->priority = 1; //1 - highest; 0 - lowest
+  p->timecpu = 0; //only counts to 2. 2 = bump down priority
+
   return p;
 }
 
@@ -277,6 +281,7 @@ scheduler(void)
     // Enable interrupts on this processor.
     sti();
 
+
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
@@ -467,6 +472,7 @@ procdump(void) //used for displaying content to screen when testing for lab3****
       for(i=0; i<10 && pc[i] != 0; i++)
         cprintf(" %p", pc[i]);
     }
+    cprintf(" PP= %d\n", p->priority);
     cprintf("\n");
   }
 }

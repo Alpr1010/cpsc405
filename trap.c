@@ -102,8 +102,34 @@ trap(struct trapframe *tf)
 
   // Force process to give up CPU on clock tick.
   // If interrupts were on while locks held, would need to check nlock.
-  if(proc && proc->state == RUNNING && tf->trapno == T_IRQ0+IRQ_TIMER)
-    yield();
+  // Code using priority/timecpu queue's added here(LAB3)
+  if(proc && proc->state == RUNNING && tf->trapno == T_IRQ0+IRQ_TIMER) {
+    // Increase timecpu for process
+    proc->timecpu++;
+    cprintf("priority = %d", proc->priority);
+    cprintf("timecpu = %d", proc->timecpu);
+
+    /* If statement to find when it's on highest and lowest priority.
+        if it's on highest and timecpu is 1, it will reduce priority and yield
+        if it's on the lowest priority and timecpu is 2, it will yield
+        otherwise, it will not yield (if timecpu is 1 and on lowest priority)
+        */
+
+    // Highest Priority -> If timecpu is equal to 1, reduce priority
+    if(proc->priority == 1 && proc->timecpu == 1) {
+      proc->timecpu--;
+      proc->priority--;
+      cprintf("Moving p down %d\n", proc->pid);
+      yield();
+    }//end if
+
+    // Lowest Priority -> If timecpu is equal to 2 and already on lowest, give up cpu
+    else if(proc->priority == 0 && proc->timecpu == 2) {
+      proc->timecpu = 0; //reset timecpu
+      cprintf("Timecpu up for %d\n", proc->pid);
+      yield();
+    }//end else if
+  }//end modification for priority/timecpu(lab3)
 
   // Check if the process has been killed since we yielded
   if(proc && proc->killed && (tf->cs&3) == DPL_USER)
