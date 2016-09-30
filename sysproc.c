@@ -9,7 +9,7 @@
 
 int
 sys_test(void) {
-  procdump();
+  processinfo();
   return 0;
 }
 
