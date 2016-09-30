@@ -833,15 +833,17 @@ SYSCALL(getcount) //added getcount here
  427:	cd 40                	int    $0x40
  429:	c3                   	ret    
 
-0000042a <test>:
-SYSCALL(test) //test function for printing process info
+0000042a <getprocessinfo>:
+SYSCALL(getprocessinfo) //printing all process info
  42a:	b8 17 00 00 00       	mov    $0x17,%eax
  42f:	cd 40                	int    $0x40
  431:	c3                   	ret    
- 432:	66 90                	xchg   %ax,%ax
- 434:	66 90                	xchg   %ax,%ax
- 436:	66 90                	xchg   %ax,%ax
- 438:	66 90                	xchg   %ax,%ax
+
+00000432 <increasepriority>:
+SYSCALL(increasepriority)
+ 432:	b8 18 00 00 00       	mov    $0x18,%eax
+ 437:	cd 40                	int    $0x40
+ 439:	c3                   	ret    
  43a:	66 90                	xchg   %ax,%ax
  43c:	66 90                	xchg   %ax,%ax
  43e:	66 90                	xchg   %ax,%ax

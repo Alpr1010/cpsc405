@@ -12,11 +12,11 @@
 00000000 .debug_loc
 00000000 .debug_ranges
 00000000 usertests.c
-00005d00 args.1475
+00005d00 args.1477
 00000000 ulib.c
 00000000 printf.c
 000038e0 printint
-0000541c digits.1111
+0000541c digits.1113
 00000000 umalloc.c
 00005d80 freep
 00005d84 base
@@ -44,6 +44,7 @@
 00005ce4 randstate
 00003832 pipe
 00005da0 uninit
+000038d2 increasepriority
 00002930 dirfile
 00003842 write
 000031f0 bsstest
@@ -56,7 +57,6 @@
 000009b0 exectest
 0000385a exec
 0000382a wait
-000038ca test
 000035c0 rand
 0000383a read
 00000b90 preempt
@@ -74,6 +74,7 @@
 00003610 strcmp
 00000470 writetest
 0000389a dup
+000038ca getprocessinfo
 00002d10 sbrktest
 000003e0 opentest
 00001ce0 subdir

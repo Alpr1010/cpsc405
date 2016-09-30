@@ -14,7 +14,7 @@
 00000000 ulib.c
 00000000 printf.c
 00000370 printint
-00000740 digits.1111
+00000740 digits.1113
 00000000 umalloc.c
 000009e4 freep
 000009e8 base
@@ -27,13 +27,13 @@
 00000640 malloc
 00000342 sleep
 000002c2 pipe
+00000362 increasepriority
 000002d2 write
 0000030a fstat
 000002e2 kill
 00000322 chdir
 000002ea exec
 000002ba wait
-0000035a test
 000002ca read
 00000302 unlink
 000002aa fork
@@ -45,6 +45,7 @@
 00000352 getcount
 000000a0 strcmp
 0000032a dup
+0000035a getprocessinfo
 000001f0 stat
 000009e4 _edata
 000009f0 _end
