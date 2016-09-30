@@ -1,11 +1,8 @@
-/* Alex Brown
- * CPSC 405 Lab 3
- * 9/30/16
- */
-
-#include ...
+#include "types.h"
+#include "user.h"
 
 int main(void) {
-  printf(1, " ", getprocessinfo());
-  exit();
-}
+    //Prints out all process information (Excluding UNUSED)
+    printf(1, " ", getprocessinfo());
+    exit();
+}//end main
