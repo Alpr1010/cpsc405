@@ -7,11 +7,14 @@
 #include "mmu.h"
 #include "proc.h"
 
+// System call to view all process information (excluding UNUSED) [Lab3]
 int
 sys_test(void) {
   processinfo();
   return 0;
 }
+
+// System call to increase priority of process [Lab3]
 
 int
 sys_fork(void)
