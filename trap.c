@@ -105,9 +105,9 @@ trap(struct trapframe *tf)
   // Code using priority/timecpu queue's added here(LAB3)
   if(proc && proc->state == RUNNING && tf->trapno == T_IRQ0+IRQ_TIMER) {
     // Increase timecpu for process
-    proc->timecpu++;
-    prioritybump++;
-    cprintf("priority bump = %d\n", prioritybump);
+//    proc->timecpu++;
+//    prioritybump++;
+//    cprintf("priority bump = %d\n", prioritybump);
 
 
     if(prioritybump == 10) {
