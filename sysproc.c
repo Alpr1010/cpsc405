@@ -9,12 +9,23 @@
 
 // System call to view all process information (excluding UNUSED) [Lab3]
 int
-sys_test(void) {
+sys_getprocessinfo(void) {
   processinfo();
   return 0;
-}
+}//end sys_getprocessinfo
 
 // System call to increase priority of process [Lab3]
+int
+sys_increasepriority(void) {
+
+  // If priority is 0, raise it to 1
+  if(proc->priority == 0) {
+    proc->priority = 1;
+  }//end if
+
+  // Returns priority for process
+  return proc->priority;
+}//end sys_increasepriority
 
 int
 sys_fork(void)

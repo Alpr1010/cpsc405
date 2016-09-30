@@ -24,7 +24,8 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int getcount(void); //added getcount here
-int test(void);
+int getprocessinfo(void);
+int increasepriority(void);
 
 // ulib.c
 int stat(char*, struct stat*);

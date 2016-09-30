@@ -99,7 +99,8 @@ extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
 extern int sys_getcount(void); //getcount here
-extern int sys_test(void);
+extern int sys_getprocessinfo(void); //getprocessinfo here (lab3)
+extern int sys_increasepriority(void); //request priority here (lab3)
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -124,7 +125,8 @@ static int (*syscalls[])(void) = {
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
 [SYS_getcount] sys_getcount, //getcount here
-[SYS_test] sys_test,
+[SYS_getprocessinfo] sys_getprocessinfo, //getprocessinfo
+[SYS_increasepriority] sys_increasepriority, //increasepriority
 };
 
 void

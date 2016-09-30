@@ -30,4 +30,5 @@ SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
 SYSCALL(getcount) //added getcount here
-SYSCALL(test) //test function for printing process info
+SYSCALL(getprocessinfo) //printing all process info
+SYSCALL(increasepriority)
