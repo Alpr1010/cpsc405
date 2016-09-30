@@ -24,7 +24,7 @@ sys_increasepriority(void) {
     proc->priority = 1;
   }//end if
   else {
-      cprintf("Priority for process %s is already set to the highest (%d).\n", proc->name, proc->priority);
+      //cprintf("Priority for process %s is already set to the highest (%d).\n", proc->name, proc->priority);
   }//end else
 
   // Returns priority for process

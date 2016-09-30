@@ -481,12 +481,12 @@ void processinfo(void) {
   // Declare process struct
   struct proc *p;
 
-  cprintf("Process Information (UNUSED excluded)\n");
+  cprintf("Currently Running Process:\n");
 
   // Loop table and print all information about each process (excluding UNUSED)
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
-    if (p->state == UNUSED)
+    if (p->state == UNUSED || p->state == SLEEPING)
       continue;
-    cprintf("Name -> %s        Info -> ID = %d        Priority = %d\n", p->name, p->pid, p->priority);
+    cprintf("Name:  %s    PID: %d        Priority: %d\n", p->name, p->pid, p->priority);
   }
 }//end processinfo
