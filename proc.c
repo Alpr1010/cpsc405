@@ -281,6 +281,27 @@ scheduler(void)
     // Enable interrupts on this processor.
     sti();
 
+    // Increment priority shifting
+    prioritybump++;
+    
+    // Approximately every minute, reset priority
+    // seems 500,000 = 1s so I set it to 120m = 60s
+    if(prioritybump >= 10000000) {
+        cprintf("Priority Shift!\n");
+        prioritybump = 0; //reset prioritybump
+
+        //Loop through table setting priorities of processes to 1 (highest)
+        for(p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+            if(p->state != RUNNABLE)
+                continue;
+            
+            // Change priority if it's 0
+            if(p->priority == 0) {
+                p->priority = 1;
+            }//end if
+        }//end for
+    }//end if
+
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
