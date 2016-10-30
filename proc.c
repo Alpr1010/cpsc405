@@ -146,7 +146,7 @@ fork(void)
   }
 
   // Copy process state from p.
-  if((np->pgdir = copyuvm(proc->pgdir, proc->sz)) == 0){
+  if((np->pgdir = copyuvm(proc->pgdir, proc->sz)) == (unsigned int*) 0x1000){
     kfree(np->kstack);
     np->kstack = 0;
     np->state = UNUSED;
@@ -286,7 +286,7 @@ scheduler(void)
     
     // Approximately every minute, reset priority
     // seems 500,000 = 1s so I set it to 120m = 60s
-    if(prioritybump >= 10000000) {
+    if(prioritybump >= 600000000) {
         cprintf("Priority Shift!\n");
         prioritybump = 0; //reset prioritybump
 

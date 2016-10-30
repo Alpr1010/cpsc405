@@ -323,7 +323,7 @@ copyuvm(pde_t *pgdir, uint sz)
 
   if((d = setupkvm()) == 0)
     return 0;
-  for(i = 0; i < sz; i += PGSIZE){
+  for(i = 0x1000; i < sz; i += PGSIZE){
     if((pte = walkpgdir(pgdir, (void *) i, 0)) == 0)
       panic("copyuvm: pte should exist");
     if(!(*pte & PTE_P))
@@ -373,7 +373,7 @@ copyout(pde_t *pgdir, uint va, void *p, uint len)
     pa0 = uva2ka(pgdir, (char*)va0);
     if(pa0 == 0)
       return -1;
-    n = PGSIZE - (va - va0);
+    n = PGSIZE+1 - (va - va0);
     if(n > len)
       n = len;
     memmove(pa0 + (va - va0), buf, n);
