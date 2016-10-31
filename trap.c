@@ -77,6 +77,10 @@ trap(struct trapframe *tf)
             cpu->id, tf->cs, tf->eip);
     lapiceoi();
     break;
+  case T_PGFLT:
+    cprintf("Your process was just murdered.\n");
+    proc->killed = 1;
+    break;
 
   //PAGEBREAK: 13
   default:
@@ -125,14 +129,14 @@ trap(struct trapframe *tf)
     if(proc->priority == 1 && proc->timecpu == 1) {
       proc->timecpu--;
       proc->priority--;
-      cprintf("Moving %s(%d) down\n", proc->name, proc->pid);
+      //cprintf("Moving %s(%d) down\n", proc->name, proc->pid);
       yield();
     }//end if
 
     // Lowest Priority -> If timecpu is equal to 2 and already on lowest, give up cpu
     else if(proc->priority == 0 && proc->timecpu == 2) {
       proc->timecpu = 0; //reset timecpu
-      cprintf("Timecpu up for %s(%d)\n", proc->name, proc->pid);
+      //cprintf("Timecpu up for %s(%d)\n", proc->name, proc->pid);
       yield();
     }//end else if
   }//end modification for priority/timecpu(lab3)
